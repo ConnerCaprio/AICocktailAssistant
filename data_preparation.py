@@ -23,8 +23,8 @@ def save_features(df, path='cocktail_features.csv'):
     df.to_csv(path)
 
 if __name__ == "__main__":
-    ingredients_path = 'path/to/your/ingredients.json'
-    recipes_path = 'path/to/your/recipes.json'
+    ingredients_path = 'ingredients.json'
+    recipes_path = 'recipes.json'
     ingredients, recipes = load_data(ingredients_path, recipes_path)
     features_df = prepare_features(ingredients, recipes)
     save_features(features_df)
