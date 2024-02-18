@@ -3,7 +3,7 @@ from recommendation_engine import recommend_cocktails
 
 st.title('AI Cocktail Assistant')
 
-user_preference = st.text_input('Enter your preferred ingredient or cocktail name, Try "Negroni"!').str.strip()
+user_preference = st.text_input('Enter your preferred ingredient or cocktail name, Try "Negroni"!').strip()
 
 if user_preference:
     recommended_cocktails = recommend_cocktails(user_preference)
