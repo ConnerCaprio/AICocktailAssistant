@@ -14,10 +14,11 @@ def prepare_features(ingredients, recipes):
     cocktails_features = {recipe['name']: np.zeros(len(all_ingredients), dtype=int) for recipe in recipes}
     for recipe in recipes:
         for ingredient in recipe['ingredients']:
-            if ingredient['ingredient'] in all_ingredients:
+            if 'ingredient' in ingredient and ingredient['ingredient'] in all_ingredients:
                 index = all_ingredients.index(ingredient['ingredient'])
                 cocktails_features[recipe['name']][index] = 1
     return pd.DataFrame.from_dict(cocktails_features, orient='index', columns=all_ingredients)
+
 
 def save_features(df, path='cocktail_features.csv'):
     df.to_csv(path)
